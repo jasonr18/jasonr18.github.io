@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Interpretable Learning-Based Control · Jiayang Ren</title><script>try {
+    var t = localStorage.getItem('theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+} catch (e) {}</script><meta name="description" content="Model predictive control laws learned as oblique decision trees, over 1,000× faster than online MPC."><meta name="author" content="Jiayang Ren"><link rel="canonical" href="https://jiayang.site/Research/interpretable-control/"><meta name="theme-color" content="#c5050c"><meta property="og:type" content="website"><meta property="og:site_name" content="Jiayang Ren"><meta property="og:title" content="Interpretable Learning-Based Control · Jiayang Ren"><meta property="og:description" content="Model predictive control laws learned as oblique decision trees, over 1,000× faster than online MPC."><meta property="og:url" content="https://jiayang.site/Research/interpretable-control/"><meta property="og:image" content="https://jiayang.site/img/social-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Interpretable Learning-Based Control · Jiayang Ren"><meta name="twitter:description" content="Model predictive control laws learned as oblique decision trees, over 1,000× faster than online MPC."><meta name="twitter:image" content="https://jiayang.site/img/social-card.png"><link rel="icon" type="image/svg+xml" href="/img/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="/css/index.css"><script async src="https://www.googletagmanager.com/gtag/js?id=G-P1B9GTWVS8"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-P1B9GTWVS8');</script><meta name="generator" content="Hexo 6.0.0"></head><body><header class="site-header"><div class="header-inner"><a class="site-name" href="/">Jiayang Ren</a><div class="header-actions"><nav class="site-nav"><a class="nav-link" href="/">About</a><a class="nav-link active" href="/Research/" aria-current="page">Research</a><a class="nav-link" href="/Publications/">Publications</a><a class="nav-link" href="/Blog/">Blog</a></nav><button class="theme-toggle" type="button" aria-label="Switch between light and dark mode" title="Switch between light and dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i><i class="fa-solid fa-sun" aria-hidden="true"></i></button><button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div></div></header><main class="site-main"><aside class="profile has-toc"><div class="profile-card" itemscope itemtype="http://schema.org/Person"><img class="profile-photo" src="/img/avatar.jpg" alt="Jiayang Ren" itemprop="image" width="160" height="160"><div class="profile-text"><p class="profile-name" itemprop="name">Jiayang Ren</p><p class="profile-title" itemprop="jobTitle">Postdoctoral Researcher</p><p class="profile-affiliation"><a href="https://engineering.wisc.edu/departments/chemical-biological-engineering/" itemprop="affiliation" target="_blank" rel="noopener">University of Wisconsin–Madison</a></p><ul class="profile-links"><li><a href="https://scholar.google.com/citations?user=V3QBv3cAAAAJ" title="Google Scholar" aria-label="Google Scholar" target="_blank" rel="noopener"><i class="fa-brands fa-google-scholar" aria-hidden="true"></i></a></li><li><a href="https://github.com/jasonr18" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li><li><a href="https://www.linkedin.com/in/jiayang-ren/" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></li><li><a href="https://orcid.org/0000-0002-8904-7870" title="ORCID" aria-label="ORCID" target="_blank" rel="noopener"><i class="fa-brands fa-orcid" aria-hidden="true"></i></a></li><li><a href="mailto:rjy12307@outlook.com" title="Email" aria-label="Email" target="_blank" rel="noopener"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li></ul><a class="btn-cv" href="/attaches/CV.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span>Download CV</span></a></div></div><nav class="profile-toc" aria-label="Contents"><p class="profile-toc-title">Contents</p><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Results"><span class="toc-text">Results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Publications"><span class="toc-text">Publications</span></a></li></ol></nav></aside><div class="page" itemscope itemtype="http://schema.org/CreativeWork"><a class="page-parent" href="/Research/"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Research</a><h1 class="page-title">Interpretable Learning-Based Control</h1><details class="toc-inline"><summary>Contents</summary><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Results"><span class="toc-text">Results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Publications"><span class="toc-text">Publications</span></a></li></ol></details><article><p class="lead">Model predictive control laws learned as oblique decision trees, over 1,000× faster than online MPC.</p>
+
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Model predictive control (MPC) performs well but must solve an optimization problem online at every step. The control law of linear MPC is piecewise affine, so it can be represented <strong>exactly</strong> by an oblique decision tree with linear predictions at the leaf nodes. Building on this, I learn MPC laws as interpretable decision trees offline and deploy the tree online as the controller.</p>
+<figure class="figure-card"><a class="zoom" href="/img/research_mpc.png" target="_blank" rel="noopener" data-caption="(a) A linear MPC control law equals an oblique decision tree with linear predictions. (b) The tree is trained offline and deployed online as the controller."><img src="/img/research_mpc.png" alt="Equivalence between a linear MPC control law and an oblique decision tree, and the offline training / online control framework"></a><figcaption>(a) A linear MPC control law equals an oblique decision tree with linear predictions. (b) The tree is trained offline and deployed online as the controller.</figcaption></figure>
+
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p>The resulting controllers perform competitively with MPC at the speed of a low-level PID controller: <strong>over 1,000× faster than MPC</strong> and <strong>10× faster than neural network equivalents</strong>. I have extended this framework to quadcopter control and to interpretable reinforcement learning for multi-loop adaptive PID control.</p>
+<h2 id="Publications"><a href="#Publications" class="headerlink" title="Publications"></a>Publications</h2><div class="pub-list"><article class="pub" id="pub-cdc2025" data-type="conference" data-topics="control trees">
+<div class="pub-side"><span class="badge badge-control">IEEE CDC 2025</span></div>
+<div class="pub-main">
+<p class="pub-title">Exact Learning of Linear Model Predictive Control Laws Using Oblique Decision Trees with Linear Predictions</p>
+<p class="pub-authors"><strong class="me">Ren, J.</strong>, Mao, Q., Zhao, T., and Cao, Y.</p>
+<p class="pub-venue"><em>64th IEEE Conference on Decision and Control</em>, pp. 7018–7023 (2025).</p>
+
+<div class="pub-actions"><a class="pub-btn" href="https://doi.org/10.1109/CDC57313.2025.11312960" target="_blank" rel="noopener">DOI</a><button class="pub-btn pub-cite" type="button" data-bibtex="@inproceedings{cdc2025,
+  title     = {{Exact Learning of Linear Model Predictive Control Laws Using Oblique Decision Trees with Linear Predictions}},
+  author    = {Ren, J. and Mao, Q. and Zhao, T. and Cao, Y.},
+  booktitle = {64th IEEE Conference on Decision and Control},
+  pages     = {7018--7023},
+  year      = {2025},
+  doi       = {10.1109/CDC57313.2025.11312960}
+}"><i class="fa-solid fa-quote-right" aria-hidden="true"></i>Cite</button></div>
+</div>
+</article>
+<article class="pub" id="pub-ifac2026-quadcopter" data-type="conference" data-topics="control trees">
+<div class="pub-side"><span class="badge badge-control">IFAC WC 2026</span></div>
+<div class="pub-main">
+<p class="pub-title">Fast, High-Performance, and Interpretable Quadcopter Control Using Decision Trees</p>
+<p class="pub-authors"><strong class="me">Ren, J.</strong>, Juang, M.-H., Zhao, T., and Cao, Y.</p>
+<p class="pub-venue"><em>23rd IFAC World Congress</em> (2026).</p>
+
+<div class="pub-actions"><button class="pub-btn pub-cite" type="button" data-bibtex="@inproceedings{ifac2026quadcopter,
+  title     = {{Fast, High-Performance, and Interpretable Quadcopter Control Using Decision Trees}},
+  author    = {Ren, J. and Juang, M.-H. and Zhao, T. and Cao, Y.},
+  booktitle = {23rd IFAC World Congress},
+  year      = {2026}
+}"><i class="fa-solid fa-quote-right" aria-hidden="true"></i>Cite</button></div>
+</div>
+</article>
+<article class="pub" id="pub-ifac2026-pid" data-type="conference" data-topics="control">
+<div class="pub-side"><span class="badge badge-control">IFAC WC 2026</span></div>
+<div class="pub-main">
+<p class="pub-title">Interpretable Reinforcement Learning for Multi-Loop Adaptive PID Control</p>
+<p class="pub-authors">Zhao, T., <strong class="me">Ren, J.</strong>, Zou, C., Yang, Y., Cao, Y., and Gopaluni, R.B.</p>
+<p class="pub-venue"><em>23rd IFAC World Congress</em> (2026).</p>
+
+<div class="pub-actions"><button class="pub-btn pub-cite" type="button" data-bibtex="@inproceedings{ifac2026pid,
+  title     = {{Interpretable Reinforcement Learning for Multi-Loop Adaptive PID Control}},
+  author    = {Zhao, T. and Ren, J. and Zou, C. and Yang, Y. and Cao, Y. and Gopaluni, R.B.},
+  booktitle = {23rd IFAC World Congress},
+  year      = {2026}
+}"><i class="fa-solid fa-quote-right" aria-hidden="true"></i>Cite</button></div>
+</div>
+</article>
+<article class="pub" id="pub-tase2024" data-type="journal" data-topics="control">
+<div class="pub-side"><span class="badge badge-journal">IEEE T-ASE 2024</span></div>
+<div class="pub-main">
+<p class="pub-title">Deep Learning-Based Approximation of Model Predictive Control Laws Using Mixture Networks</p>
+<p class="pub-authors">Okamoto, M., <strong class="me">Ren, J.</strong>, Mao, Q., Liu, J., and Cao, Y.</p>
+<p class="pub-venue"><em>IEEE Transactions on Automation Science and Engineering</em>, 22: 2909–2922 (2024).</p>
+
+<div class="pub-actions"><a class="pub-btn" href="https://doi.org/10.1109/TASE.2024.3386596" target="_blank" rel="noopener">DOI</a><button class="pub-btn pub-cite" type="button" data-bibtex="@article{tase2024,
+  title   = {{Deep Learning-Based Approximation of Model Predictive Control Laws Using Mixture Networks}},
+  author  = {Okamoto, M. and Ren, J. and Mao, Q. and Liu, J. and Cao, Y.},
+  journal = {IEEE Transactions on Automation Science and Engineering},
+  volume  = {22},
+  pages   = {2909--2922},
+  year    = {2024},
+  doi     = {10.1109/TASE.2024.3386596}
+}"><i class="fa-solid fa-quote-right" aria-hidden="true"></i>Cite</button></div>
+</div>
+</article>
+<article class="pub" id="pub-energy2025" data-type="journal" data-topics="control">
+<div class="pub-side"><span class="badge badge-journal">Energy 2025</span></div>
+<div class="pub-main">
+<p class="pub-title">Hierarchical Model Predictive Control for Energy Consumption Regulation of Industrial-Scale Circulation Counter-Flow Paddy Drying Process</p>
+<p class="pub-authors">Li, C.*, <strong class="me">Ren, J.*</strong>, Seth, A., Zhang, Y., Huang, J., Li, C., and Cao, Y.</p>
+<p class="pub-venue"><em>Energy</em>, 321: 135431 (2025).</p>
+<p class="pub-note">* Co-first authors</p>
+<div class="pub-actions"><a class="pub-btn" href="https://doi.org/10.1016/j.energy.2025.135431" target="_blank" rel="noopener">DOI</a><button class="pub-btn pub-cite" type="button" data-bibtex="@article{energy2025,
+  title   = {{Hierarchical Model Predictive Control for Energy Consumption Regulation of Industrial-Scale Circulation Counter-Flow Paddy Drying Process}},
+  author  = {Li, C. and Ren, J. and Seth, A. and Zhang, Y. and Huang, J. and Li, C. and Cao, Y.},
+  journal = {Energy},
+  volume  = {321},
+  pages   = {135431},
+  year    = {2025},
+  doi     = {10.1016/j.energy.2025.135431}
+}"><i class="fa-solid fa-quote-right" aria-hidden="true"></i>Cite</button></div>
+</div>
+</article></div>
+
+<nav class="topic-nav" aria-label="Research topics">
+<a class="topic-prev" href="/Research/decision-trees/"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Optimal and Deep Decision Trees</a>
+<a class="topic-all" href="/Research/">All research</a>
+<span></span>
+</nav>
+</article></div></main><footer class="site-footer"><div class="footer-inner"><p class="copyright">&copy; 2021–2026 Jiayang Ren</p><p class="theme-info">Built with <a target="_blank" href="https://hexo.io" rel="nofollow noopener">Hexo</a> and a customized <a target="_blank" href="https://github.com/PhosphorW/hexo-theme-academia" rel="nofollow noopener">Academia</a> theme.</p></div></footer><button class="to-top" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button><div class="lightbox" hidden><figure><img alt=""><figcaption></figcaption></figure></div><script src="/js/main.js"></script></body></html>
